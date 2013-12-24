@@ -59,11 +59,11 @@ if [ -n "$(find $BUILD_DIR -name '*.jar' -o -name '*.class')" ]; then
 fi
 
 ### NginxTomcat
-if [[  ( -f $1/index.html || -f $1/index.htm || -f $1/Default.htm ) ]]
-then
-  echo "NginxTomcat" 
-  exit 0
-fi
+# if [[  ( -f $1/index.html || -f $1/index.htm || -f $1/Default.htm ) ]]
+# then
+#   echo "Nginx Tomcat" 
+#   exit 0
+# fi
 
 echo "no"
 exit 1
