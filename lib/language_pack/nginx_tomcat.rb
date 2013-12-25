@@ -23,8 +23,8 @@ module LanguagePack
 
     def compile
       Dir.chdir(build_path) do
-        install_nginx
-        configure_nginx
+        # install_nginx
+        # configure_nginx
         install_java
         install_tomcat
         remove_tomcat_files
