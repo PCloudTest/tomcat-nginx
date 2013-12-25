@@ -7,6 +7,7 @@ require "language_pack/spring"
 require "language_pack/grails"
 require "language_pack/play"
 require "language_pack/xml_wrapper"
+require "language_pack/nginx_tomcat"
 
 # General Language Pack module
 module LanguagePack
@@ -17,7 +18,7 @@ module LanguagePack
   def self.detect(*args)
     Dir.chdir(args.first)
 
-    pack = [ Play, Grails, Spring, JavaWeb, Java ].detect do |klass|
+    pack = [ Play, Grails, Spring, JavaWeb, Java , NginxTomcat ].detect do |klass|
       klass.use?
     end
 
