@@ -46,7 +46,7 @@ done
 ### JavaWeb
 for dir in "${BUILD_DIR}/${WEBAPP_DIR}/${JAVA_WEB_DIR}" "${BUILD_DIR}/${JAVA_WEB_DIR}"; do
   if [ -f "$dir/web.xml" ]; then
-     echo "Java Web"
+     echo "Java Websss"
      exit 0
   fi
 done
