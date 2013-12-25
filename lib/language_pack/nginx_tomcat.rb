@@ -105,13 +105,13 @@ module LanguagePack
       opts.delete("-Djava.io.tmpdir=")
       opts
     end
-    # def release
-    #   {
-    #       "addons" => [],
-    #       "config_vars" => {},
-    #       "default_process_types" => default_process_types
-    #   }.to_yaml
-    # end
+    def release
+      {
+          "addons" => [],
+          "config_vars" => {},
+          "default_process_types" => default_process_types
+      }.to_yaml
+    end
 
     def default_process_types
       {
