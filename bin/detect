@@ -46,7 +46,7 @@ done
 ### JavaWeb
 for dir in "${BUILD_DIR}/${WEBAPP_DIR}/${JAVA_WEB_DIR}" "${BUILD_DIR}/${JAVA_WEB_DIR}"; do
   if [ -f "$dir/web.xml" ]; then
-     echo "Java Websss"
+     echo "Java Web"
      exit 0
   fi
 done
@@ -58,7 +58,7 @@ if [ -n "$(find $BUILD_DIR -name '*.jar' -o -name '*.class')" ]; then
    exit 0
 fi
 
-## NginxTomcat
+### NginxTomcat
 if [[  ( -f $1/index.html || -f $1/index.htm || -f $1/Default.htm ) ]]
 then
   echo "Nginx Tomcat" 

@@ -25,7 +25,7 @@ module LanguagePack
       Dir.chdir(build_path) do
         install_nginx
         configure_nginx
-        # install_java
+        install_java
         # install_tomcat
         # remove_tomcat_files
         # copy_webapp_to_tomcat
@@ -33,7 +33,7 @@ module LanguagePack
         # install_database_drivers
         # #install_insight
         # copy_resources
-        # setup_profiled
+        setup_profiled
       end
     end
 
@@ -45,7 +45,7 @@ module LanguagePack
     end
     def configure_nginx
       puts "configure_nginx"
-      run_with_err_output("cp -r #{File.expand_path('../../../resources/nginx', __FILE__)}/* nginx/conf/ && cp #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
+      run_with_err_output("cp -r #{File.expand_path('../../../resources/nginx', __FILE__)}/* #{build_path}/nginx/conf/ && cp #{File.expand_path('../../../bin/boot.sh', __FILE__)} #{build_path}")
 
       
     end

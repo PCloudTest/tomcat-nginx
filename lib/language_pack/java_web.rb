@@ -33,6 +33,10 @@ module LanguagePack
       end
     end
 
+    def tomcat_dir
+      ".tomcat"
+    end
+
     def install_tomcat
       FileUtils.mkdir_p tomcat_dir
       tomcat_tarball="#{tomcat_dir}/tomcat.tar.gz"
@@ -40,6 +44,7 @@ module LanguagePack
       download_tomcat tomcat_tarball
 
       puts "Unpacking Tomcat to #{tomcat_dir}"
+      #tomcat root:#{build_path}/.tomcat
       run_with_err_output("tar xzf #{tomcat_tarball} -C #{tomcat_dir} && mv #{tomcat_dir}/apache-tomcat*/* #{tomcat_dir} && " +
               "rm -rf #{tomcat_dir}/apache-tomcat*")
       FileUtils.rm_rf tomcat_tarball
@@ -61,9 +66,7 @@ module LanguagePack
       end
     end
 
-    def tomcat_dir
-      ".tomcat"
-    end
+    
 
     def copy_webapp_to_tomcat
       run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
