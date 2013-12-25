@@ -39,16 +39,16 @@ module LanguagePack
     end
 
     def install_nginx
-      puts "Downloading nginx-1.4.1---#{build_path}---"
+      puts "Downloading nginx-1.4.1---#{build_path}---#{$HOME}"
       # FileUtils.mkdir_p nginx_dir
       run_with_err_output("curl -s --max-time 60 ${NGINX_PACKAGE} |tar xz")
 
     end
     def configure_nginx
       puts "configure_nginx"
-      run_with_err_output("cp -f #{File.expand_path('../../../resources/nginx/nginx.conf', __FILE__)} #{build_path}/nginx/conf/nginx.conf && "+
-        "cp -f #{File.expand_path('../../../resources/nginx/mime.types', __FILE__)} #{build_path}/nginx/conf/mime.types && "+
-        " cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} #{build_path}")
+      run_with_err_output("cp -f #{File.expand_path('../../../resources/nginx/nginx.conf', __FILE__)} nginx/conf/nginx.conf && "+
+        "cp -f #{File.expand_path('../../../resources/nginx/mime.types', __FILE__)} nginx/conf/mime.types && "+
+        " cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
 
       
     end
