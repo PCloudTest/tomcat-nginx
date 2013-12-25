@@ -46,7 +46,7 @@ module LanguagePack
     end
     def configure_nginx
       puts "configure_nginx"
-      run_with_err_output("cp -r #{File.expand_path('../../../resources/nginx', __FILE__)}/* #{build_path}/nginx/conf/ && cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} #{build_path}")
+      run_with_err_output("cp -rf #{File.expand_path('../../../resources/nginx', __FILE__)}/* #{build_path}/nginx/conf/ && cp -rf #{File.expand_path('../../../bin/boot.sh', __FILE__)} #{build_path}")
 
       
     end
