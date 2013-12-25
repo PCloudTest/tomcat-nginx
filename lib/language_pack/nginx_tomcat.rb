@@ -23,6 +23,7 @@ module LanguagePack
 
     def compile
       Dir.chdir(build_path) do
+        install_java
         install_nginx
         configure_nginx
         #install_java
@@ -33,7 +34,7 @@ module LanguagePack
         # install_database_drivers
         # #install_insight
         # copy_resources
-        #setup_profiled
+        setup_profiled
       end
     end
 
@@ -102,13 +103,13 @@ module LanguagePack
       opts.delete("-Djava.io.tmpdir=")
       opts
     end
-    def release
-      {
-          "addons" => [],
-          "config_vars" => {},
-          "default_process_types" => default_process_types
-      }.to_yaml
-    end
+    # def release
+    #   {
+    #       "addons" => [],
+    #       "config_vars" => {},
+    #       "default_process_types" => default_process_types
+    #   }.to_yaml
+    # end
 
     def default_process_types
       {
