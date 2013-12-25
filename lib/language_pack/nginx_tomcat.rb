@@ -14,7 +14,7 @@ module LanguagePack
 
 
     def self.use?
-      File.exists?("WEB-INF/web.xml") || File.exists?("webapps/ROOT/WEB-INF/web.xml")
+      File.exists?("index.html") || File.exists?("index.htm") || File.exists?("Default.htm")
     end
 
     def name
@@ -23,7 +23,7 @@ module LanguagePack
 
     def compile
       Dir.chdir(build_path) do
-        # install_java
+        install_java
         install_nginx
         configure_nginx
         #install_java
@@ -34,7 +34,7 @@ module LanguagePack
         # install_database_drivers
         # #install_insight
         # copy_resources
-        # setup_profiled
+        setup_profiled
       end
     end
 
