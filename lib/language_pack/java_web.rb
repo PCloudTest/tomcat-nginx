@@ -91,7 +91,7 @@ module LanguagePack
 
     def default_process_types
       {
-        "web" => "./catalina.sh run"
+        "web" => "./bin/catalina.sh run"
       }
     end
 

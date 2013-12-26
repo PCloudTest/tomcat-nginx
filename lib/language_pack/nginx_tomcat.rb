@@ -118,7 +118,7 @@ module LanguagePack
 
     def default_process_types
       {
-        "web" => "sh boot.sh"
+        "web" => "./boot.sh run"
         # "web" => "exec nginx/sbin/nginx"
       }
     end
