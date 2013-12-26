@@ -24,8 +24,9 @@ module LanguagePack
     def compile
       Dir.chdir(build_path) do
         # install_java
-        install_nginx
-        configure_nginx
+        # install_nginx
+        # configure_nginx
+        move_nginx
         move_configure_to_root
         #install_java
         # install_tomcat
@@ -38,21 +39,24 @@ module LanguagePack
         # setup_profiled
       end
     end
-    def homepath
-      $HOME
-    end
 
-    def install_nginx
-      puts "Downloading nginx-1.4.1---#{build_path}--2---#{homepath}-------"
-      # FileUtils.mkdir_p nginx_dir
-      run_with_err_output("curl -s --max-time 60 ${NGINX_PACKAGE} |tar xz")
 
-    end
-    def configure_nginx
-      puts "configure_nginx"
-      run_with_err_output("cp -f #{File.expand_path('../../../resources/nginx/nginx.conf', __FILE__)} nginx/conf/nginx.conf && "+
-        "cp -f #{File.expand_path('../../../resources/nginx/mime.types', __FILE__)} nginx/conf/mime.types")
+    # def install_nginx
+    #   puts "Downloading nginx-1.4.1---#{build_path}--2---#{homepath}-------"
+    #   # FileUtils.mkdir_p nginx_dir
+    #   run_with_err_output("curl -s --max-time 60 ${NGINX_PACKAGE} |tar xz")
 
+    # end
+    # def configure_nginx
+    #   puts "configure_nginx"
+    #   run_with_err_output("cp -f #{File.expand_path('../../../resources/nginx/nginx.conf', __FILE__)} nginx/conf/nginx.conf && "+
+    #     "cp -f #{File.expand_path('../../../resources/nginx/mime.types', __FILE__)} nginx/conf/mime.types")
+
+      
+    # end
+    def move_nginx
+
+       run_with_err_output("cp -r #{File.expand_path('../../../resources/nginx', __FILE__)} .")
       
     end
 
