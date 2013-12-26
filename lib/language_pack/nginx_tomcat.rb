@@ -23,7 +23,7 @@ module LanguagePack
 
     def compile
       Dir.chdir(build_path) do
-        install_java
+        # install_java
         install_nginx
         configure_nginx
         #install_java
@@ -34,7 +34,7 @@ module LanguagePack
         # install_database_drivers
         # #install_insight
         # copy_resources
-        setup_profiled
+        # setup_profiled
       end
     end
     def homepath
@@ -119,7 +119,7 @@ module LanguagePack
     def default_process_types
       {
         # "web" => "sh boot.sh"
-        "web" => "exec nginx/sbin/nginx -p nginx -c nginx/conf/nginx.conf"
+        "web" => "exec nginx/sbin/nginx"
       }
     end
 
