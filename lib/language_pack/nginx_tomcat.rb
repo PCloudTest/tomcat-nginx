@@ -122,13 +122,13 @@ module LanguagePack
       run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
     end
     
-    def release
-      {
-          "addons" => [],
-          "config_vars" => {},
-          "default_process_types" => default_process_types
-      }.to_yaml
-    end
+    # def release
+    #   {
+    #       "addons" => [],
+    #       "config_vars" => {},
+    #       "default_process_types" => default_process_types
+    #   }.to_yaml
+    # end
 
     def default_process_types
       {
