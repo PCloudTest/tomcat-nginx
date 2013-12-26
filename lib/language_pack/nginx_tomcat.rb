@@ -38,11 +38,11 @@ module LanguagePack
       end
     end
     def homepath
-      @homepath=$HOME
+      $HOME
     end
 
     def install_nginx
-      puts "Downloading nginx-1.4.1---#{build_path}--1---#{homepath}-------"
+      puts "Downloading nginx-1.4.1---#{build_path}--2---#{homepath}-------"
       # FileUtils.mkdir_p nginx_dir
       run_with_err_output("curl -s --max-time 60 ${NGINX_PACKAGE} |tar xz")
 
@@ -118,8 +118,8 @@ module LanguagePack
 
     def default_process_types
       {
-        # "web" => "sh boot.sh"
-        "web" => "exec nginx/sbin/nginx"
+        "web" => "sh boot.sh"
+        # "web" => "exec nginx/sbin/nginx"
       }
     end
 

@@ -69,11 +69,11 @@ module LanguagePack
     
 
     def copy_webapp_to_tomcat
-      run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv #{build_path}/* #{tomcat_dir}/webapps/ROOT")
+      run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
     end
 
     def move_tomcat_to_root
-      run_with_err_output("mv #{tomcat_dir}/* #{build_path} && rm -rf #{tomcat_dir}")
+      run_with_err_output("mv #{tomcat_dir}/* . && rm -rf #{tomcat_dir}")
     end
 
     def copy_resources
@@ -91,7 +91,7 @@ module LanguagePack
 
     def default_process_types
       {
-        "web" => "./bin/catalina.sh run"
+        "web" => "./catalina.sh run"
       }
     end
 
