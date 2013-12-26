@@ -30,6 +30,8 @@ module LanguagePack
         #install_insight
         copy_resources
         setup_profiled
+        move_configure_to_root
+
       end
     end
 
@@ -89,9 +91,14 @@ module LanguagePack
       opts
     end
 
+    def move_configure_to_root
+      run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
+    end
+
     def default_process_types
       {
-        "web" => "./bin/catalina.sh run"
+        # "web" => "./bin/catalina.sh run"
+        "web" => "sh boot.sh"
       }
     end
 
