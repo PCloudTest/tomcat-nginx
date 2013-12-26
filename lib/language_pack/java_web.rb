@@ -78,7 +78,7 @@ module LanguagePack
 
     def copy_resources
       # Configure server.xml with variable HTTP port
-      run_with_err_output("cp -r #{File.expand_path('../../../resources/tomcat', __FILE__)}/* #{build_path}")
+      run_with_err_output("cp -r #{File.expand_path('../../../resources/tomcat', __FILE__)}/* .")
     end
 
     def java_opts
