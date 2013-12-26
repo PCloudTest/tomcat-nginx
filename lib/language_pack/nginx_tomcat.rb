@@ -28,7 +28,7 @@ module LanguagePack
         # configure_nginx
         
 
-        
+
         install_java
         install_tomcat
         remove_tomcat_files
@@ -58,6 +58,7 @@ module LanguagePack
       
     # end
     def move_nginx
+      puts "install nginx package....."
 
        run_with_err_output("cp -r #{File.expand_path('../../../resources/nginx', __FILE__)} .")
       
@@ -117,6 +118,7 @@ module LanguagePack
     end
 
     def move_configure_to_root
+      puts "move boot to root"
       run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
     end
     
