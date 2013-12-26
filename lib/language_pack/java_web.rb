@@ -12,7 +12,7 @@ module LanguagePack
     WEBAPP_DIR = "webapps/ROOT/".freeze
 
     def self.use?
-      File.exists?("WEB-INF/web.xml") || File.exists?("webapps/ROOT/WEB-INF/web.xml")
+      File.exists?("WEB-INF/webddd.xml") || File.exists?("webapps/ROOT/WEB-INF/webddd.xml")
     end
 
     def name
