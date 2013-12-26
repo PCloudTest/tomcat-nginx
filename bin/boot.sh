@@ -13,7 +13,7 @@
 # ------------------------------------------------------------------------------------------------
 
 export APP_ROOT=$HOME
-
+# cd $APP_ROOT
 
 # conf_file=$APP_ROOT/nginx/conf/nginx.conf
 # if [ -f $APP_ROOT/nginx.conf ]
@@ -30,7 +30,7 @@ export APP_ROOT=$HOME
 # exec $APP_ROOT/nginx/sbin/nginx -p $APP_ROOT/nginx -c $APP_ROOT/nginx/conf/nginx.conf
 
 # ------------------------------------------------------------------------------------------------
-cd $APP_ROOT
+
 ./bin/catalina.sh run
 
 # ------------------------------------------------------------------------------------------------
