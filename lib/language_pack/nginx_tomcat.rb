@@ -26,6 +26,7 @@ module LanguagePack
         # install_java
         install_nginx
         configure_nginx
+        move_configure_to_root
         #install_java
         # install_tomcat
         # remove_tomcat_files
@@ -50,8 +51,7 @@ module LanguagePack
     def configure_nginx
       puts "configure_nginx"
       run_with_err_output("cp -f #{File.expand_path('../../../resources/nginx/nginx.conf', __FILE__)} nginx/conf/nginx.conf && "+
-        "cp -f #{File.expand_path('../../../resources/nginx/mime.types', __FILE__)} nginx/conf/mime.types && "+
-        " cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
+        "cp -f #{File.expand_path('../../../resources/nginx/mime.types', __FILE__)} nginx/conf/mime.types")
 
       
     end
@@ -108,6 +108,11 @@ module LanguagePack
       opts.delete("-Djava.io.tmpdir=")
       opts
     end
+
+    def move_configure_to_root
+      run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
+    end
+    
     def release
       {
           "addons" => [],
