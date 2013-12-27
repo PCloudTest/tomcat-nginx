@@ -38,8 +38,8 @@ module LanguagePack
         #install_insight
         copy_resources
         setup_profiled
-        # move_nginx
-        # move_configure_to_root
+        move_nginx
+        move_configure_to_root
       end
     end
 
