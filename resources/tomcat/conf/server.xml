@@ -27,7 +27,7 @@
 
   <Service name="Catalina">
 
-    <Connector port="${http.port}" protocol="HTTP/1.1" connectionTimeout="20000" bindOnInit="false"/>
+    <Connector port="5000" protocol="HTTP/1.1" connectionTimeout="20000" bindOnInit="false"/>
 
     <Engine name="Catalina" defaultHost="localhost">
 
