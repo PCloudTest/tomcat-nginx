@@ -132,7 +132,7 @@ module LanguagePack
 
     def default_process_types
       {
-        "web" => "sh boot.sh"
+        "web" => "./bin/catalina.sh run"
         # "web" => "exec nginx/sbin/nginx"
       }
     end
