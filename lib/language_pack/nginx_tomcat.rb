@@ -36,7 +36,7 @@ module LanguagePack
         move_tomcat_to_root
         install_database_drivers
         #install_insight
-        # copy_resources
+        copy_resources
         setup_profiled
         move_nginx
         move_configure_to_root
