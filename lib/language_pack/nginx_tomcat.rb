@@ -30,13 +30,13 @@ module LanguagePack
 
 
         install_java
-        # install_tomcat
-        # remove_tomcat_files
-        # copy_webapp_to_tomcat
-        # move_tomcat_to_root
+        install_tomcat
+        remove_tomcat_files
+        copy_webapp_to_tomcat
+        move_tomcat_to_root
         # install_database_drivers
-        # #install_insight
-        # copy_resources
+        #install_insight
+        copy_resources
         setup_profiled
         move_nginx
         move_configure_to_root
