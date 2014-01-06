@@ -26,12 +26,12 @@ module LanguagePack
         # install_java
         # install_nginx
         # configure_nginx
-        
+        move_app_to_dir
 
 
         install_java
         install_tomcat
-        # remove_tomcat_files
+        remove_tomcat_files
         copy_webapp_to_tomcat
         move_tomcat_to_root
         install_database_drivers
@@ -57,6 +57,17 @@ module LanguagePack
 
       
     # end
+    def app_dir
+      ".app"
+    end
+
+    def move_app_to_dir
+      puts "move app to dir....."
+      FileUtils.mkdir_p app_dir
+      run_with_err_output("mv * #{app_dir}/")
+    end
+
+
     def move_nginx
       puts "install nginx package....."
 
@@ -97,9 +108,9 @@ module LanguagePack
     end
 
     def copy_webapp_to_tomcat
-       # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
-      run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
-        "mv css js images #{tomcat_dir}/webapps/ROOT/ && cp -f WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF/")
+       run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv #{app_dir}/* #{tomcat_dir}/webapps/ROOT")
+      # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
+      #   "mv css js images #{tomcat_dir}/webapps/ROOT/ && cp -f WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF/")
     end
 
     def move_tomcat_to_root
