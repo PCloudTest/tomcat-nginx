@@ -98,7 +98,7 @@ module LanguagePack
     end
 
     def remove_tomcat_files
-      %w[webapps/ROOT ].each do |file|
+      %w[webapps/. ].each do |file|
         FileUtils.rm_rf("#{tomcat_dir}/#{file}")
       end
     end
