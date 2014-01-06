@@ -133,7 +133,7 @@ module LanguagePack
 
     def move_configure_to_root
       puts "move boot to root"
-      run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
+      # run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
     end
     
     # def release
