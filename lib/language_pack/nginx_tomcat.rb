@@ -39,7 +39,7 @@ module LanguagePack
         copy_resources
         setup_profiled
         # move_nginx
-        # move_configure_to_root
+        move_configure_to_root
       end
     end
 
@@ -126,14 +126,14 @@ module LanguagePack
     def java_opts
       # TODO proxy settings?
       # Don't override Tomcat's temp dir setting
-      opts = super.merge({ "-Dhttp.port=" => "6700" })
+      opts = super.merge({ "-Dhttp.port=" => "$PORT" })
       opts.delete("-Djava.io.tmpdir=")
       opts
     end
 
     def move_configure_to_root
       puts "move boot to root"
-      # run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
+      run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
     end
     
     # def release
