@@ -57,15 +57,15 @@ module LanguagePack
 
       
     # end
-    def app_dir
-      ".app"
-    end
+    # def app_dir
+    #   ".app"
+    # end
 
-    def move_app_to_dir
-      puts "move app to dir....."
-      FileUtils.mkdir_p app_dir
-      run_with_err_output("mv * #{app_dir}/")
-    end
+    # def move_app_to_dir
+    #   puts "move app to dir....."
+    #   FileUtils.mkdir_p app_dir
+    #   run_with_err_output("mv * #{app_dir}/")
+    # end
 
 
     def move_nginx
@@ -112,7 +112,7 @@ module LanguagePack
        run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT ")
        # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
       run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
-        "mv css js images #{tomcat_dir}/webapps/ROOT/ && cp -f WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF/")
+        "mv css js images #{tomcat_dir}/webapps/ROOT/ && mv WEB-INF #{tomcat_dir}/webapps/ROOT")
     end
 
     def move_tomcat_to_root
