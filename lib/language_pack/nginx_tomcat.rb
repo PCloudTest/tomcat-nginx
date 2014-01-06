@@ -31,7 +31,7 @@ module LanguagePack
 
         install_java
         install_tomcat
-        # remove_tomcat_files
+        remove_tomcat_files
         copy_webapp_to_tomcat
         move_tomcat_to_root
         install_database_drivers
@@ -97,8 +97,8 @@ module LanguagePack
     end
 
     def copy_webapp_to_tomcat
-      # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
-      run_with_err_output("cp -f index.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
+       run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
+      #run_with_err_output("cp -f index.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
     end
 
     def move_tomcat_to_root
