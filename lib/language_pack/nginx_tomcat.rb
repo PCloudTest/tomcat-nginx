@@ -99,7 +99,7 @@ module LanguagePack
     def copy_webapp_to_tomcat
        # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
       run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
-        "mv css js images #{tomcat_dir}/webapps/ROOT/")
+        "mv css js images #{tomcat_dir}/webapps/ROOT/ && cp -f WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF/")
     end
 
     def move_tomcat_to_root
