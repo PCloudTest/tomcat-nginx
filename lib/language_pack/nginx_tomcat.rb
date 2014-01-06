@@ -87,7 +87,7 @@ module LanguagePack
     end
 
     def remove_tomcat_files
-      %w[NOTICE RELEASE-NOTES RUNNING.txt LICENSE temp/. webapps/. work/. logs].each do |file|
+      %w[ webapps/ROOT ].each do |file|
         FileUtils.rm_rf("#{tomcat_dir}/#{file}")
       end
     end
