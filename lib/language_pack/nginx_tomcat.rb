@@ -32,7 +32,7 @@ module LanguagePack
 
         install_java
         install_tomcat
-        
+
         remove_tomcat_files
         copy_webapp_to_tomcat
         # delete_app_copy
