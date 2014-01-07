@@ -34,6 +34,7 @@ module LanguagePack
         install_tomcat
         # remove_tomcat_files
         copy_webapp_to_tomcat
+        delete_app_copy
         move_tomcat_to_root
         install_database_drivers
         #install_insight
@@ -143,6 +144,11 @@ module LanguagePack
     def move_configure_to_root
       puts "move boot to root"
       run_with_err_output("cp -r #{File.expand_path('../../../bin/boot.sh', __FILE__)} .")
+    end
+
+    def delete_app_copy
+      puts "delete app copy"
+      run_with_err_output("rm -fr #{build_path}/*")
     end
     
     # def release
