@@ -66,8 +66,8 @@ module LanguagePack
     def move_app_to_dir
       puts "move app to dir....."
       FileUtils.mkdir_p app_dir
-      # run_with_err_output("cp -fr * #{app_dir}/")
-      run_with_err_output("mv -f * #{app_dir}/")
+      run_with_err_output("cp -fr * #{app_dir}/")
+      # run_with_err_output("mv -f * #{app_dir}/")
     end
 
 
