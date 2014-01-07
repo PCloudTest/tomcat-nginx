@@ -26,7 +26,7 @@ module LanguagePack
         # install_java
         # install_nginx
         # configure_nginx
-        # move_app_to_dir
+        move_app_to_dir
 
 
         install_java
@@ -56,16 +56,16 @@ module LanguagePack
     #     "cp -f #{File.expand_path('../../../resources/nginx/mime.types', __FILE__)} nginx/conf/mime.types")
 
       
-    # end
-    # def app_dir
-    #   ".app"
-    # end
+    end
+    def app_dir
+      ".app"
+    end
 
-    # def move_app_to_dir
-    #   puts "move app to dir....."
-    #   FileUtils.mkdir_p app_dir
-    #   run_with_err_output("mv * #{app_dir}/")
-    # end
+    def move_app_to_dir
+      puts "move app to dir....."
+      FileUtils.mkdir_p app_dir
+      run_with_err_output("mv * #{app_dir}/")
+    end
 
 
     def move_nginx
@@ -113,9 +113,9 @@ module LanguagePack
        # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
       # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
       #   "mv css js images #{tomcat_dir}/webapps/ROOT/ && mv WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF")
-    run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
-    # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
-    #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
+    # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
+    run_with_err_output("cp -f #{app_dir}/*.html #{tomcat_dir}/webapps/ROOT  && " +
+        "mv #{app_dir}/css #{app_dir}/js #{app_dir}/images #{app_dir}/WEB-INF #{tomcat_dir}/webapps/ROOT/")
     end
 
     def move_tomcat_to_root
