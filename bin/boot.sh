@@ -33,13 +33,14 @@ erb $APP_ROOT/.nginx/conf/orig.conf > $APP_ROOT/.nginx/conf/nginx.conf
 
 
 
-./bin/startup.sh run && exec $APP_ROOT/.nginx/sbin/nginx -p $APP_ROOT/.nginx -c $APP_ROOT/.nginx/conf/nginx.conf
+./bin/startup.sh run 
+exec $APP_ROOT/.nginx/sbin/nginx -p $APP_ROOT/.nginx -c $APP_ROOT/.nginx/conf/nginx.conf
 
 # ------------------------------------------------------------------------------------------------
 # done
-# while true
+while true
 
-# done
+done
 
 
 
