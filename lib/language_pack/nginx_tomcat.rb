@@ -127,7 +127,7 @@ module LanguagePack
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
     #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/* && mv *.html #{tomcat_dir}/webapps/ROOT")
+      run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/* && mv -f #{build_path}/*.html #{tomcat_dir}/webapps/ROOT")
       # run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
       # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT ")
     end
