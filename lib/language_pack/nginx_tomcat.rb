@@ -26,7 +26,7 @@ module LanguagePack
         # install_java
         # install_nginx
         # configure_nginx
-        move_app_to_dir
+        # move_app_to_dir
         
 
 
@@ -34,7 +34,7 @@ module LanguagePack
         install_tomcat
         # remove_tomcat_files
         copy_webapp_to_tomcat
-        delete_app_copy
+        # delete_app_copy
         move_tomcat_to_root
         install_database_drivers
         #install_insight
@@ -120,7 +120,7 @@ module LanguagePack
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
     #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      run_with_err_output("cp -fr #{app_dir}/* #{tomcat_dir}/webapps/ROOT ")
+      run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
       # run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
     end
 
