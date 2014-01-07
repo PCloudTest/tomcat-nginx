@@ -32,7 +32,7 @@ module LanguagePack
 
         install_java
         install_tomcat
-        move_nginx
+
         # remove_tomcat_files
         copy_webapp_to_tomcat
         # delete_app_copy
@@ -42,7 +42,7 @@ module LanguagePack
         copy_resources
         setup_profiled
         
-        
+        move_nginx
         move_configure_to_root
       end
     end
@@ -102,7 +102,7 @@ module LanguagePack
       FileUtils.mv TOMCAT_PACKAGE, tomcat_tarball
     end
 
-     def remove_tomcat_files
+    def remove_tomcat_files
       %w[NOTICE RELEASE-NOTES RUNNING.txt LICENSE temp/. work/. logs].each do |file|
         FileUtils.rm_rf("#{tomcat_dir}/#{file}")
       end
@@ -113,15 +113,14 @@ module LanguagePack
     end
 
     def copy_webapp_to_tomcat
-       
        # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
+       run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT && mkdir -p #{tomcat_dir}/webapps/ROOT ")
        # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
       # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
       #   "mv css js images #{tomcat_dir}/webapps/ROOT/ && mv WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF")
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
     #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT && mkdir -p #{tomcat_dir}/webapps/ROOT ")
       run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
       # run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
     end
@@ -139,7 +138,6 @@ module LanguagePack
       # TODO proxy settings?
       # Don't override Tomcat's temp dir setting
       opts = super.merge({ "-Dhttp.port=" => "6701" })
-      # opts = super.merge({ "-Dhttp.port=" => "$PORT" })
       opts.delete("-Djava.io.tmpdir=")
       opts
     end
