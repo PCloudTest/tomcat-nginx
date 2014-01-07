@@ -36,7 +36,7 @@ module LanguagePack
         # remove_tomcat_files
         copy_webapp_to_tomcat
         # delete_app_copy
-        move_tomcat_to_root
+        # move_tomcat_to_root
         install_database_drivers
         #install_insight
         copy_resources
@@ -121,8 +121,8 @@ module LanguagePack
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
     #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      # run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
-      run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
+      run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
+      # run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
     end
 
     def move_tomcat_to_root
