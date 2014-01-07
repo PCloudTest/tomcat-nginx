@@ -19,4 +19,19 @@ module LanguagePack::DatabaseHelpers
     end
     added_jars
   end
+
+  def install_database_drivers_for_tn
+    added_jars = []
+    Dir.chdir(".tomcat/lib") do
+      SERVICE_DRIVER_HASH.each_pair do |search_pattern, url|
+         unless !Dir.glob(search_pattern).empty?
+           fetch_package(File.basename(url), File.dirname(url))
+           added_jars << File.basename(url)
+         end
+      end
+    end
+    added_jars
+  end
+
+
 end

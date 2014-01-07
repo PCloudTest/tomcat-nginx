@@ -38,6 +38,7 @@ module LanguagePack
         # delete_app_copy
         # move_tomcat_to_root
         # install_database_drivers
+        install_database_drivers_for_tn
         #install_insight
         
         copy_resources
