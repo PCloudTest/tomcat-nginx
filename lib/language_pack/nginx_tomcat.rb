@@ -26,7 +26,7 @@ module LanguagePack
         # install_java
         # install_nginx
         # configure_nginx
-        move_app_to_dir
+        
 
 
         install_java
@@ -38,6 +38,7 @@ module LanguagePack
         #install_insight
         copy_resources
         setup_profiled
+        move_app_to_dir
         move_nginx
         move_configure_to_root
       end
@@ -64,7 +65,8 @@ module LanguagePack
     def move_app_to_dir
       puts "move app to dir....."
       FileUtils.mkdir_p app_dir
-      run_with_err_output("cp -fr * #{app_dir}/")
+      # run_with_err_output("cp -fr * #{app_dir}/")
+      run_with_err_output("mv -f * #{app_dir}/")
     end
 
 
@@ -116,8 +118,8 @@ module LanguagePack
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
     #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      # run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
-      run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
+      run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
+      # run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
     end
 
     def move_tomcat_to_root
