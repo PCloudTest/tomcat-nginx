@@ -26,12 +26,12 @@ module LanguagePack
         # install_java
         # install_nginx
         # configure_nginx
-        # move_app_to_dir
+        move_app_to_dir
 
 
         install_java
         install_tomcat
-        remove_tomcat_files
+        # remove_tomcat_files
         copy_webapp_to_tomcat
         move_tomcat_to_root
         install_database_drivers
@@ -64,7 +64,7 @@ module LanguagePack
     def move_app_to_dir
       puts "move app to dir....."
       FileUtils.mkdir_p app_dir
-      run_with_err_output("mv * #{app_dir}/")
+      run_with_err_output("cp -fr * #{app_dir}/")
     end
 
 
