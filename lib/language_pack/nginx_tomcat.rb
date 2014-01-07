@@ -39,11 +39,12 @@ module LanguagePack
         # move_tomcat_to_root
         install_database_drivers
         #install_insight
+        move_configure_to_root
         copy_resources
         setup_profiled
         
         
-        move_configure_to_root
+        
       end
     end
 
