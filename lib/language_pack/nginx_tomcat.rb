@@ -115,7 +115,7 @@ module LanguagePack
       #   "mv css js images #{tomcat_dir}/webapps/ROOT/ && mv WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF")
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     run_with_err_output("cp -f #{app_dir}/*.html #{tomcat_dir}/webapps/ROOT  && " +
-        "mv #{app_dir}/* #{tomcat_dir}/webapps/ROOT/")
+        "mv #{app_dir}/WEB-INF #{tomcat_dir}/webapps/ROOT/")
     end
 
     def move_tomcat_to_root
