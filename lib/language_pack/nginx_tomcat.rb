@@ -138,8 +138,8 @@ module LanguagePack
     def java_opts
       # TODO proxy settings?
       # Don't override Tomcat's temp dir setting
-      # opts = super.merge({ "-Dhttp.port=" => "6701" })
-      opts = super.merge({ "-Dhttp.port=" => "$PORT" })
+      opts = super.merge({ "-Dhttp.port=" => "6701" })
+      # opts = super.merge({ "-Dhttp.port=" => "$PORT" })
       opts.delete("-Djava.io.tmpdir=")
       opts
     end
