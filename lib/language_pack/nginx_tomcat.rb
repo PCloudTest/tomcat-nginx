@@ -42,7 +42,7 @@ module LanguagePack
         copy_resources
         setup_profiled
         
-        # move_nginx
+        move_nginx
         move_configure_to_root
       end
     end
