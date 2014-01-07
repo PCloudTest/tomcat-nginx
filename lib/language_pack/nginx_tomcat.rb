@@ -37,7 +37,7 @@ module LanguagePack
         copy_webapp_to_tomcat
         # delete_app_copy
         # move_tomcat_to_root
-        install_database_drivers
+        # install_database_drivers
         #install_insight
         
         copy_resources
@@ -64,16 +64,16 @@ module LanguagePack
     # end
 
 
-    def app_dir
-      ".appss"
-    end
+    # def app_dir
+    #   ".appss"
+    # end
 
-    def move_app_to_dir
-      puts "move app to dir....."
-      FileUtils.mkdir_p app_dir
-      run_with_err_output("cp -fr * #{app_dir}/")
-      # run_with_err_output("mv -f * #{app_dir}/")
-    end
+    # def move_app_to_dir
+    #   puts "move app to dir....."
+    #   FileUtils.mkdir_p app_dir
+    #   run_with_err_output("cp -fr * #{app_dir}/")
+    #   # run_with_err_output("mv -f * #{app_dir}/")
+    # end
 
 
     def move_nginx
