@@ -33,7 +33,7 @@ module LanguagePack
         install_java
         install_tomcat
         move_nginx
-        # remove_tomcat_files
+        remove_tomcat_files
         copy_webapp_to_tomcat
         # delete_app_copy
         move_tomcat_to_root
@@ -103,7 +103,7 @@ module LanguagePack
     end
 
      def remove_tomcat_files
-      %w[NOTICE RELEASE-NOTES RUNNING.txt LICENSE temp/. webapps/. work/. logs].each do |file|
+      %w[NOTICE RELEASE-NOTES RUNNING.txt LICENSE temp/. work/. logs].each do |file|
         FileUtils.rm_rf("#{tomcat_dir}/#{file}")
       end
     end
