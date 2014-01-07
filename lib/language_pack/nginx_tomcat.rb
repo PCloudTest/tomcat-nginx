@@ -33,7 +33,7 @@ module LanguagePack
         install_java
         install_tomcat
         move_nginx
-        remove_tomcat_files
+        # remove_tomcat_files
         copy_webapp_to_tomcat
         # delete_app_copy
         move_tomcat_to_root
