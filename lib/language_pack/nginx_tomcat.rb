@@ -118,6 +118,7 @@ module LanguagePack
     end
 
     def copy_webapp_to_tomcat
+      puts"copy_webapp_to_tomcat"
        
        # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
        # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
