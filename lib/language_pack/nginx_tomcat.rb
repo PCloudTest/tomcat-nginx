@@ -33,7 +33,7 @@ module LanguagePack
         install_java
         install_tomcat
 
-        remove_tomcat_files
+        # remove_tomcat_files
         copy_webapp_to_tomcat
         # delete_app_copy
         move_tomcat_to_root
@@ -114,15 +114,15 @@ module LanguagePack
 
     def copy_webapp_to_tomcat
        
-       run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
+       # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
        # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
       # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
       #   "mv css js images #{tomcat_dir}/webapps/ROOT/ && mv WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF")
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
     #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT && mkdir -p #{tomcat_dir}/webapps/ROOT ")
-      # run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
+      run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT && mkdir -p #{tomcat_dir}/webapps/ROOT ")
+      run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
       # run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
     end
 

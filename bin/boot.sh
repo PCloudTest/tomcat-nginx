@@ -38,9 +38,7 @@ exec $APP_ROOT/.nginx/sbin/nginx -p $APP_ROOT/.nginx -c $APP_ROOT/.nginx/conf/ng
 
 # ------------------------------------------------------------------------------------------------
 # done
-while true
 
-done
 
 
 
