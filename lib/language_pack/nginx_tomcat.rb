@@ -33,7 +33,7 @@ module LanguagePack
         install_java
         install_tomcat
         move_nginx
-        # remove_tomcat_files
+        remove_tomcat_files
         copy_webapp_to_tomcat
         # delete_app_copy
         move_tomcat_to_root
@@ -103,7 +103,7 @@ module LanguagePack
     end
 
      def remove_tomcat_files
-      %w[NOTICE RELEASE-NOTES RUNNING.txt LICENSE temp/. work/. logs].each do |file|
+      %w[NOTICE RELEASE-NOTES RUNNING.txt LICENSE temp/. webapps/. work/. logs].each do |file|
         FileUtils.rm_rf("#{tomcat_dir}/#{file}")
       end
     end
@@ -121,7 +121,7 @@ module LanguagePack
     # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
     # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
     #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT && mkdir -p #{tomcat_dir}/webapps/ROOT ")
+      run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT ")
       run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
       # run_with_err_output("mv -f * #{tomcat_dir}/webapps/ROOT ")
     end
