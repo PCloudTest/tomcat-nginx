@@ -75,8 +75,8 @@ module LanguagePack
     def move_nginx
       puts "install nginx package....."
 
-       run_with_err_output("cp -r #{File.expand_path('../../../resources/nginx', __FILE__)} .")
-      
+      run_with_err_output("cp -r #{File.expand_path('../../../resources/nginx', __FILE__)} .")
+      run_with_err_output("mv nginx .nginx")
     end
 
     def install_tomcat
