@@ -58,12 +58,25 @@ if [ -n "$(find $BUILD_DIR -name '*.jar' -o -name '*.class')" ]; then
    exit 0
 fi
 
-### NginxTomcat
+### Nginx
 if [[  ( -f $1/index.html || -f $1/index.htm || -f $1/Default.htm ) ]]
 then
   echo "Nginx Tomcat" 
   exit 0
 fi
+
+### NginxTomcat
+for dir in "${BUILD_DIR}/${WEBAPP_DIR}/${JAVA_WEB_DIR}" "${BUILD_DIR}/${JAVA_WEB_DIR}"; do
+  if [ -f "$dir/web.xml" ]; then
+
+    if [[  ( -f $1/index.html || -f $1/index.htm || -f $1/Default.htm ) ]]
+    then
+      echo "Nginx Tomcat" 
+      exit 0
+    fi
+  fi
+done
+
 
 echo "no"
 exit 1

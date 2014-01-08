@@ -14,7 +14,7 @@ module LanguagePack
 
 
     def self.use?
-      File.exists?("index.html") || File.exists?("index.htm") || File.exists?("Default.htm")
+      ( File.exists?("index.html") || File.exists?("index.htm") || File.exists?("Default.htm") ) && ( File.exists?("WEB-INF/web.xml") || File.exists?("webapps/ROOT/WEB-INF/web.xml") )
     end
 
     def name

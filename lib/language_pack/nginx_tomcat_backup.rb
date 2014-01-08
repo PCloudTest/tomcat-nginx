@@ -28,8 +28,6 @@ module LanguagePack
         # configure_nginx
         # move_app_to_dir
         
-
-
         install_java
         install_tomcat
 
