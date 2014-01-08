@@ -8,6 +8,7 @@ require "language_pack/grails"
 require "language_pack/play"
 require "language_pack/xml_wrapper"
 require "language_pack/nginx_tomcat"
+require "language_pack/nginx"
 
 # General Language Pack module
 module LanguagePack
