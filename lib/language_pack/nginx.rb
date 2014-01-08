@@ -1,11 +1,12 @@
-require "yaml"
+require "language_pack/java"
+require "language_pack/database_helpers"
 require "fileutils"
 
 # TODO logging
 module LanguagePack
-  class Nginx
+  class Nginx < Java
     include LanguagePack::PackageFetcher
-
+    include LanguagePack::DatabaseHelpers
    
     NGINX_PACKAGE = "https://d35wldypfbhn1h.cloudfront.net/nginx-1.4.1.tar.gz".freeze
 
@@ -78,29 +79,29 @@ module LanguagePack
 
     
 
-    def copy_webapp_to_tomcat
-      puts"copy_webapp_to_tomcat"
+    # def copy_webapp_to_tomcat
+    #   puts"copy_webapp_to_tomcat"
        
-       # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
-       # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
-      # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
-      #   "mv css js images #{tomcat_dir}/webapps/ROOT/ && mv WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF")
-    # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
-    # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
-    #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
-      run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/* && cp -fr * #{tomcat_dir}/webapps/ROOT")
-      # run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
-      # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT ")
-    end
+    #    # run_with_err_output("mkdir -p #{tomcat_dir}/webapps/ROOT && mv * #{tomcat_dir}/webapps/ROOT")
+    #    # run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp")
+    #   # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT && rm -fr #{tomcat_dir}/webapps/ROOT/index.jsp  && " +
+    #   #   "mv css js images #{tomcat_dir}/webapps/ROOT/ && mv WEB-INF/web.xml #{tomcat_dir}/webapps/ROOT/WEB-INF")
+    # # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT")
+    # # run_with_err_output("cp -f *.html #{tomcat_dir}/webapps/ROOT  && " +
+    # #     "mv css js images WEB-INF #{tomcat_dir}/webapps/ROOT/")
+    #   run_with_err_output("rm -fr #{tomcat_dir}/webapps/ROOT/* && cp -fr * #{tomcat_dir}/webapps/ROOT")
+    #   # run_with_err_output("cp -fr * #{tomcat_dir}/webapps/ROOT ")
+    #   # run_with_err_output("mv * #{tomcat_dir}/webapps/ROOT ")
+    # end
 
-    def move_tomcat_to_root
-      run_with_err_output("mv #{tomcat_dir}/* . && rm -rf #{tomcat_dir}")
-    end
+    # def move_tomcat_to_root
+    #   run_with_err_output("mv #{tomcat_dir}/* . && rm -rf #{tomcat_dir}")
+    # end
 
-    def copy_resources
-      # Configure server.xml with variable HTTP port
-      run_with_err_output("cp -r #{File.expand_path('../../../resources/tomcat', __FILE__)}/* #{build_path}/.tomcat")
-    end
+    # def copy_resources
+    #   # Configure server.xml with variable HTTP port
+    #   run_with_err_output("cp -r #{File.expand_path('../../../resources/tomcat', __FILE__)}/* #{build_path}/.tomcat")
+    # end
 
    
 
@@ -109,10 +110,10 @@ module LanguagePack
       run_with_err_output("cp -r #{File.expand_path('../../../bin/nboot.sh', __FILE__)} .")
     end
 
-    def delete_app_copy
-      puts "delete app copy"
-      run_with_err_output("rm -fr #{build_path}/*")
-    end
+    # def delete_app_copy
+    #   puts "delete app copy"
+    #   run_with_err_output("rm -fr #{build_path}/*")
+    # end
     
     def release
       {
